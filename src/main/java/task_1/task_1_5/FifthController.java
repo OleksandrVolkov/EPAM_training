@@ -1,4 +1,4 @@
-package task_5;
+package task_1.task_1_5;
 
 import java.util.Scanner;
 
@@ -11,14 +11,15 @@ public class FifthController {
 
     }
     public FifthController(FifthModel model,FifthView view){
-        this.model=model;
-        this.view=view;
+        this.model = model;
+        this.view = view;
     }
+
 
     public void execute(){
         view.showMessage(FifthView.ENTER_TASK);
         view.showMessage(FifthView.ENTER_VAL);
-        model.setArraySize(enterValue());
+        model.setRange(enterValue());
 
         model.fillArray();
 
@@ -35,24 +36,24 @@ public class FifthController {
 
 
     public int enterValue(){
-        scn=new Scanner(System.in);
-        int val=0;
+        scn = new Scanner(System.in);
+        int val = 0;
 
 
         while(true){
             if(scn.hasNextInt()){
-                val=scn.nextInt();
+                val = scn.nextInt();
 
-                if(val>0&&val<10)
+                if(val>0 && val<10)
                     return val;
                 else {
                     view.showMessage(FifthView.ERROR_VAL);
-                    scn=new Scanner(System.in);
+                    scn = new Scanner(System.in);
                 }
 
             }else{
                 view.showMessage(FifthView.ERROR_VAL);
-                scn=new Scanner(System.in);
+                scn = new Scanner(System.in);
             }
         }
 

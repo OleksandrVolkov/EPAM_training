@@ -1,17 +1,17 @@
-package task_1;
+package task_1.task_1_1;
 
-import java.sql.Connection;
 import java.util.Scanner;
 
 public class FirstController {
-    FirstModel model;
-    FirstView view;
-    Scanner scn;
+    private FirstModel model;
+    private FirstView view;
+    private Scanner scn;
 
     FirstController(){}
+
     public FirstController(FirstModel model, FirstView view){
-        this.model=model;
-        this.view=view;
+        this.model = model;
+        this.view = view;
     }
 
     public void execute(){
@@ -28,25 +28,25 @@ public class FirstController {
         view.showMessage(FirstView.BLINK);
     }
 
-    public int enterValue(){
-        scn=new Scanner(System.in);
-        int val=0;
+    private int enterValue(){
+        scn = new Scanner(System.in);
+        int val = 0;
 
 
         while(true){
             if(scn.hasNextInt()){
-                val=scn.nextInt();
+                val = scn.nextInt();
 
-                if(val>0)
+                if(val > 0)
                     return val;
                 else {
                     view.showMessage(FirstView.ERROR_VAL);
-                    scn=new Scanner(System.in);
+                    scn = new Scanner(System.in);
                 }
 
             }else{
                 view.showMessage(FirstView.ERROR_VAL);
-                scn=new Scanner(System.in);
+                scn = new Scanner(System.in);
             }
         }
 

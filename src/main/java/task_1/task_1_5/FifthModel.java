@@ -1,4 +1,4 @@
-package task_5;
+package task_1.task_1_5;
 
 public class FifthModel {
     private int range;
@@ -18,14 +18,10 @@ public class FifthModel {
 
     public void setRange(int range){
         this.range=range;
+        array = new int[range][range];
     }
     public int getRange() {
         return range;
-    }
-
-    public void setArraySize(int val) {
-        setRange(val);
-        array = new int[range][range];
     }
 
 
@@ -36,15 +32,20 @@ public class FifthModel {
     }
 
     public void reverseArray() {
-        int[][] array2 = new int[range][range];
+
+//        int[][] array2 = new int[range][range];
+        int temp;
         for (int i = 0; i < range; i++) {
             int counter = range - 1;
             for (int j = 0; j < range; j++) {
-                array2[counter][i]=array[i][j];
+                temp = array[i][j];
+                array[i][j] = array[counter][i];
+                array[counter][i] = temp;
+//                array2[counter][i]=array[i][j];
                 counter--;
             }
         }
-        array=array2;
+//        array=array2;
     }
 }
 

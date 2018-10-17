@@ -1,4 +1,6 @@
-package task_2;
+package task_1.task_1_2;
+
+import java.util.Arrays;
 
 public class SecondModel {
     private int val;
@@ -6,7 +8,7 @@ public class SecondModel {
     public SecondModel(){}
 
     SecondModel(int val){
-        this.val=val;
+        this.val = val;
     }
 
 
@@ -18,18 +20,25 @@ public class SecondModel {
         this.val = val;
     }
 
-    public void getPerfectNumbers(int range){
+    public int[] getPerfectNumbers(int range){
 
-        for(int k=1;k<range;k++) {
+        int[]array = new int[range];
+        int counter = 0;
+        for(int k=1; k<range; k++) {
             int sum = 0;
 
             for (int i = 1; i < k; i++)
                 if (k % i == 0)
                     sum += i;
 
-            if (sum == k)
-                System.out.println(sum);
+            if (sum == k) {
+                array[counter] = sum;
+                counter++;
+            }
+
         }
+
+        return Arrays.copyOf(array,counter );
     }
 
 }
