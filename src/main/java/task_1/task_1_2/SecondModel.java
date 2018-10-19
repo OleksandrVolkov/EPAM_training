@@ -41,4 +41,9 @@ public class SecondModel {
         return Arrays.copyOf(array,counter );
     }
 
+    //isPerfectNumber - отдельный метод
+    //проходить половину значений а не все
+    //Лучше не делать цикл в цикле - а создать отдельный методы с возвращаемым значением - bool
+
+
 }

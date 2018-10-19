@@ -46,6 +46,7 @@ public class MainController {
     public void calculateParticularArea(){
         shapeView.showMessage(ShapesView.ENTER_SHAPE);
 
+
         switch (enterValue()){
             case 1:
                 shapeView.showMessage(ShapesView.CIRCLE_AREA + calcTotalCircleArea(model.getShapes()));
@@ -89,6 +90,8 @@ public class MainController {
 
         return area;
     }
+
+    //String.valueOf()
 
     public static double calcTotalRectangleArea(Shape[]shapes){
         double area = 0.0;

@@ -27,11 +27,8 @@ public class FifthController {
         view.displayArray(model.getArray());
         model.reverseArray();
 
-        view.showMessage(FifthView.BLINK);
-
         view.showMessage(FifthView.FINAL_MATRIX);
         view.displayArray(model.getArray());
-        view.showMessage(FifthView.BLINK);
     }
 
 

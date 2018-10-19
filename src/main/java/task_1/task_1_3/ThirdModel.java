@@ -29,10 +29,8 @@ public class ThirdModel {
         for(int j=0; j<val; j++) {
             arr += (times+blink);
 
-
             for (int i=0; i<counter; i++)
                  arr += blink;
-
 
             int amount=1;
             for (int k=1; k<times*2; k++){
@@ -53,3 +51,5 @@ public class ThirdModel {
         return arr;
     }
 }
+
+//StringBuilder in the loop

@@ -18,23 +18,24 @@ public class Controller {
 
         while(true) {
             view.printMessage(BooksView.MENU_STRING);
-            switch (enterValue()) {
-                case 1:
+
+            switch (enterOptionValue()) {
+                case SEARCH_BY_AUTHOR:
                     view.printMessage(BooksView.GET_BOOKS_BY_AUTHOR);
                     searchBooksByAuthor(enterStringValue());
                     break;
-                case 2:
+                case GET_BOOKS_AFTER_PERIOD:
                     view.printMessage(BooksView.GET_BOOKS_AFTER_PERIOD);
-                    getBooksAfterPeriod(enterValue());
+                    getBooksAfterPeriod(enterIntValue());
                     break;
-                case 3:
+                case GET_BOOKS_BY_PUBLISHER:
                     view.printMessage(BooksView.GET_BOOKS_BY_PUBLISHER);
                     getBooksByPublisher(enterStringValue());
                     break;
-                case 4:
+                case SORT_BY_PUBLISHERS:
                     sortBooksByPublisher(BooksView.SORT_BY_PUBLISHERS);
                     break;
-                case 5:
+                case ERROR_VAL:
                     return;
                 default:
                     view.printMessage(BooksView.ERROR_VAL);
@@ -43,7 +44,6 @@ public class Controller {
         }
 
     }
-
 
 
     private void searchBooksByAuthor(String author){
@@ -73,6 +73,7 @@ public class Controller {
         }
     }
 
+
     private void sortBooksByPublisher(String mes){
         Arrays.sort(model.getBooks(), new PublishersComparator());
         view.printBooks(mes+"\n",model.getBooks());
@@ -81,10 +82,32 @@ public class Controller {
 
 
 
-    public int enterValue(){
+    public Options enterOptionValue(){
         scn = new Scanner(System.in);
         int val = 0;
 
+
+        while(true){
+            if(scn.hasNextInt()){
+                val = scn.nextInt();
+
+                if(val>0 && val<6)
+                    return Options.searchForOption(val);
+                else {
+                    view.printMessage(view.ERROR_VAL);
+                    scn = new Scanner(System.in);
+                }
+            }else{
+                view.printMessage(view.ERROR_VAL);
+                scn = new Scanner(System.in);
+            }
+        }
+    }
+
+
+    public int enterIntValue(){
+        scn = new Scanner(System.in);
+        int val = 0;
 
         while(true){
             if(scn.hasNextInt()){
@@ -96,20 +119,17 @@ public class Controller {
                     view.printMessage(view.ERROR_VAL);
                     scn = new Scanner(System.in);
                 }
-
             }else{
                 view.printMessage(view.ERROR_VAL);
                 scn = new Scanner(System.in);
             }
         }
-
     }
 
 
     public String enterStringValue(){
         scn = new Scanner(System.in);
         String val = "";
-
 
         while(true){
             if(scn.hasNextLine()){
