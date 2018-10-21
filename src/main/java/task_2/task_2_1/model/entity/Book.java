@@ -8,6 +8,7 @@ public class Book {
     private int pages;
     private double price;
 
+
     public Book() {}
 
     public Book(String name, String author, String publisher, int year, int pages, double price) {

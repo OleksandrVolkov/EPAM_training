@@ -1,21 +1,28 @@
-package task_3.task_3_1;
+package task_3.task_3_1.services;
 
-import task_3.task_3_1.model.base.Toy;
+import task_3.task_3_1.model.base.GameRoom;
 import task_3.task_3_1.comparators.SizeComparator;
+import task_3.task_3_1.model.base.Toy;
 
 import java.util.Arrays;
 
-public class GameRoom <T extends Toy>{
-    T[] toys;
+public class GameRoomService<T extends Toy> {
+    private T[] toys;
+    GameRoom<Toy> model;
+
+    public GameRoomService(GameRoom<Toy> model, T[] toys){
+        this.model = model;
+        this.toys = toys;
+    }
 
     public void sortToysBySize(){
         Arrays.sort(toys, new SizeComparator());
     }
 
-
     public void calcTotalAmountOfToys(){
 
     }
+
     public int[] getIndexesRangeOfPrice(double p1, double p2){
         int[] arr = new int[toys.length];
 
@@ -24,8 +31,8 @@ public class GameRoom <T extends Toy>{
 
         for(T toy: toys){
             if(toy.getPrice()>p1 && toy.getPrice()<p2){
-               arr[counter1] = counter2;
-               counter1++;
+                arr[counter1] = counter2;
+                counter1++;
             }
             counter2++;
         }
@@ -42,21 +49,21 @@ public class GameRoom <T extends Toy>{
         return sum;
     }
 
+
+
     public T[] getToys() {
         return toys;
     }
+
     public void setToys(T[] toys) {
         this.toys = toys;
     }
 
-    @Override
-    public String toString() {
-        String string = null;
-        for(Toy toy : toys)
-            string = toy + "\n";
-
-        return string;
+    public GameRoom<Toy> getModel() {
+        return model;
     }
 
-
+    public void setModel(GameRoom<Toy> model) {
+        this.model = model;
+    }
 }

@@ -9,6 +9,8 @@ public class Stores {
     private Store.Department[] departments;
 
 
+
+
     private boolean isEmpty(){
         return departments == null;
     }

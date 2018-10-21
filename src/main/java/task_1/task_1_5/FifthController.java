@@ -3,8 +3,8 @@ package task_1.task_1_5;
 import java.util.Scanner;
 
 public class FifthController {
-    private FifthModel model;
-    private FifthView view;
+    private FifthModel model = new FifthModel();
+    private FifthView view = new FifthView();
     private Scanner scn;
 
     public FifthController(){
@@ -25,7 +25,7 @@ public class FifthController {
 
         view.showMessage(FifthView.INITIAL_MATRIX);
         view.displayArray(model.getArray());
-        model.reverseArray();
+        model.changeArrayCounterClockwise();
 
         view.showMessage(FifthView.FINAL_MATRIX);
         view.displayArray(model.getArray());
@@ -53,6 +53,5 @@ public class FifthController {
                 scn = new Scanner(System.in);
             }
         }
-
     }
 }

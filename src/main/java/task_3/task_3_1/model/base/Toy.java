@@ -44,5 +44,6 @@ public class Toy {
                 ", " + size +
                 ", price=" + price +
                 '}';
+        //return String.format("...");
     }
 }

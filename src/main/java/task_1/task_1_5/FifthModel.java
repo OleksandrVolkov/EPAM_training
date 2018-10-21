@@ -16,38 +16,34 @@ public class FifthModel {
 
     }
 
-    public void setRange(int range){
-        this.range=range;
+    public void setRange(int range) {
+        this.range = range;
         array = new int[range][range];
     }
+
     public int getRange() {
         return range;
     }
 
 
-    public void fillArray(){
-        for(int i=0;i<array.length;i++)
+    public void fillArray() {
+        for (int i = 0; i < array.length; i++)
             for (int j = 0; j < array.length; j++)
-                array[i][j]=(int)(Math.random()*9)+1;
+                array[i][j] = (int) (Math.random() * 9) + 1;
     }
 
-    public void reverseArray() {
+    public void changeArrayCounterClockwise() {
+        int tmp = 0;
 
-//        int[][] array2 = new int[range][range];
-        int temp;
-        for (int i = 0; i < range; i++) {
-            int counter = range - 1;
-            for (int j = 0; j < range; j++) {
-                temp = array[i][j];
-                array[i][j] = array[counter][i];
-                array[counter][i] = temp;
-//                array2[counter][i]=array[i][j];
-                counter--;
+        for (int i = 0; i < array.length / 2; i++)
+            for (int j = i; j < array.length - 1 - i; j++) {
+                tmp = array[i][j];
+                array[i][j] = array[j][range-1-i];
+                array[j][range-1-i] = array[range-1-i][range-1-j];
+                array[range-1-i][range-1-j] = array[range-1-j][i];
+                array[range-1-j][i] = tmp;
             }
-        }
-//        array=array2;
     }
+
 }
 
-
-//ротация - повернуть на 90 градусов

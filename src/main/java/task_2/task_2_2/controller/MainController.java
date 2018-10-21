@@ -8,136 +8,58 @@ import task_2.task_2_2.model.base.ShapesColorComparator;
 import task_2.task_2_2.model.entities.Circle;
 import task_2.task_2_2.model.entities.Rectangle;
 import task_2.task_2_2.model.entities.Triangle;
+import task_2.task_2_2.services.ShapesService;
 import task_2.task_2_2.view.ShapesView;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class MainController {
-    ShapesView shapeView = new ShapesView();
-    Scanner scn;
+    ShapesView view = new ShapesView();
     Shapes model= new Shapes();
+    ShapesService service = new ShapesService(model);
 
 
     public void execute(){
         model.setShapes(DataSource.getShapes());
 
-        displayData();
+        view.showMessage(ShapesView.DISPLAY_SET_DATA);
+        view.printShapes(model.getShapes());
 
-        shapeView.showTotalArea(model.calcTotalArea());
+        view.showTotalArea(model.calcTotalArea());
 
         calculateParticularArea();
 
-        sortingByArea();
 
-        sortingByColor();
+        service.sortingByArea();
+        view.showMessage(ShapesView.BLINK_LINE);
+        view.showMessage(ShapesView.SORTING_BY_AREA);
+        view.showArrayArea(model.getShapes());
+
+
+        service.sortingByColor();
+        view.showMessage(ShapesView.BLINK_LINE);
+        view.showMessage(ShapesView.SORTING_BY_COLOR);
+        view.showArrayColor(model.getShapes());
     }
 
 
-
-
-
-      public void displayData(){
-          shapeView.showMessage(ShapesView.DISPLAY_SET_DATA);
-          shapeView.printShapes(model.getShapes());
-      }
-
-
     public void calculateParticularArea(){
-        shapeView.showMessage(ShapesView.ENTER_SHAPE);
+        view.showMessage(ShapesView.ENTER_SHAPE);
 
-
-        switch (enterValue()){
+        switch (view.enterIntVal()){
             case 1:
-                shapeView.showMessage(ShapesView.CIRCLE_AREA + calcTotalCircleArea(model.getShapes()));
+                view.showMessage(ShapesView.CIRCLE_AREA + service.calcTotalCircleArea(model.getShapes()));
                 break;
             case 2:
-                shapeView.showMessage(ShapesView.RECTANGLE_AREA + calcTotalRectangleArea(model.getShapes()));
+                view.showMessage(ShapesView.RECTANGLE_AREA + service.calcTotalRectangleArea(model.getShapes()));
                 break;
             case 3:
-                shapeView.showMessage(ShapesView.TRIANGLE_AREA + calcTotalTriangleArea(model.getShapes()));
+                view.showMessage(ShapesView.TRIANGLE_AREA + service.calcTotalTriangleArea(model.getShapes()));
                 break;
             default:
                 break;
         }
 
     }
-
-
-    public void sortingByArea(){
-        Arrays.sort(model.getShapes(),new ShapesAreaComparator());
-        shapeView.showMessage(ShapesView.BLINK_LINE);
-        shapeView.showMessage(ShapesView.SORTING_BY_AREA);
-        ShapesView.showArrayArea(model.getShapes());
-    }
-
-
-    public void sortingByColor(){
-        Arrays.sort(model.getShapes(),new ShapesColorComparator());
-        shapeView.showMessage(ShapesView.BLINK_LINE);
-        shapeView.showMessage(ShapesView.SORTING_BY_COLOR);
-        ShapesView.showArrayColor(model.getShapes());
-    }
-
-
-
-    public static double calcTotalCircleArea(Shape[]shapes){
-        double area = 0.0;
-
-        for(Shape shape : shapes)
-            if(shape instanceof Circle)
-                area += shape.calcArea();
-
-        return area;
-    }
-
-    //String.valueOf()
-
-    public static double calcTotalRectangleArea(Shape[]shapes){
-        double area = 0.0;
-
-        for(Shape shape : shapes)
-            if(shape instanceof Rectangle)
-                area += shape.calcArea();
-
-        return area;
-    }
-
-    public static double calcTotalTriangleArea(Shape[]shapes){
-        double area = 0.0;
-
-        for(Shape shape : shapes)
-            if(shape instanceof Triangle)
-                area += shape.calcArea();
-
-        return area;
-    }
-
-
-
-    public int enterValue(){
-        scn = new Scanner(System.in);
-        int val = 0;
-
-
-        while(true){
-            if(scn.hasNextInt()){
-                val = scn.nextInt();
-
-                if(val == 1 || val==2 || val==3)
-                    return val;
-                else {
-                    shapeView.showMessage(ShapesView.ERROR_VAL);
-                    scn = new Scanner(System.in);
-                }
-
-            }else{
-                shapeView.showMessage(ShapesView.ERROR_VAL);
-                scn = new Scanner(System.in);
-            }
-        }
-
-    }
-
-
 }

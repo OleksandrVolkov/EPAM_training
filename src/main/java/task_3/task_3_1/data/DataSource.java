@@ -1,4 +1,4 @@
-package task_3.task_3_1;
+package task_3.task_3_1.data;
 
 import task_3.task_3_1.model.base.Size;
 import task_3.task_3_1.model.base.Toy;

@@ -5,7 +5,6 @@ import task_3.task_3_1.model.base.Toy;
 
 public class Ball extends Toy {
 
-
     public Ball(String color, Size size, double price) {
         super(color, size, price);
     }
