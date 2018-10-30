@@ -14,10 +14,6 @@ import java.util.Collections;
 
 import static org.junit.Assert.*;
 
-//На модели должны описываться тесты, поля (аннотированные) - public
-//Найти, упорядочить - на это нужно проверить
-//Создать свой набор данных (книг) - и проверить
-
 
 @RunWith(Parameterized.class)
 public class TemperatureConverterTests {
@@ -34,14 +30,6 @@ public class TemperatureConverterTests {
     public double temperatureF;
 
 
-    //Инициализировать параметры можно в конструкторе или через аннотации
-    //    public task_4_1.TemperatureConverterTests(double temperatureC, double temperatureK, double temperatureF) {
-    //        this.temperatureC = temperatureC;
-    //        this.temperatureK = temperatureK;
-    //        this.temperatureF = temperatureF;
-    //    }
-
-
     @Parameterized.Parameters
     public static Collection data(){
         return Arrays.asList(new Object[][]{
@@ -53,9 +41,8 @@ public class TemperatureConverterTests {
     }
 
 
-    // Подготовить данные, которые будут использоваться в тестах - цель параметризированных тестоа
 
-    @BeforeClass//Выполняется один раз, а не каждый раз (создание для каждого метода экземпляр tc опять,как в Before)
+    @BeforeClass
     public static void init(){
         tc = new TemperatureConverter();
     }
