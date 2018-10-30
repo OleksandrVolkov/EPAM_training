@@ -24,7 +24,5 @@ public class GameRoom <T extends Toy>{
 
         return string;
     }
-
-
 }
 

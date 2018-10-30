@@ -23,35 +23,36 @@ public class BooksService{
 
     public void searchBooksByAuthor(String author){
         Book[] result = getByAuthor(author);
-        if(result.length == 0){
+        if(result.length == 0)
             view.printMessage(BooksView.NO_BOOKS + author);
-        }else{
+        else
             view.printBooks(BooksView.AUTHOR + author + ": ",result);
-        }
     }
 
     public void getBooksAfterPeriod(int year){
         Book[] result = getByDate(year);
-        if(result.length == 0){
+        if(result.length == 0)
             view.printMessage(BooksView.NO_BOOKS + year);
-        }else{
+        else
             view.printBooks(BooksView.YEAR + year,result);
-        }
     }
 
     public void getBooksByPublisher(String publisher){
         Book[] result = getByPublisher(publisher);
-        if(result.length == 0) {
+        if(result.length == 0)
             view.printMessage(BooksView.NO_BOOKS + publisher);
-        }else{
+        else
             view.printBooks(BooksView.PUBLISHER + publisher, result);
-        }
     }
 
 
     public void sortBooksByPublisher(String mes){
-        Arrays.sort(model.getBooks(), new PublishersComparator());
+        this.sortByPublisher();
         view.printBooks(mes+"\n",model.getBooks());
+    }
+
+    public void sortByPublisher(){
+        Arrays.sort(model.getBooks(), new PublishersComparator());
     }
 
 
@@ -84,4 +85,5 @@ public class BooksService{
                 temp[counter++] = book;
         return Arrays.copyOf(temp,counter);
     }
+
 }

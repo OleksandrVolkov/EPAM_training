@@ -30,7 +30,7 @@ public class ShapesService {
 
 
 
-    public static double calcTotalCircleArea(Shape[]shapes){
+    public double calcTotalCircleArea(Shape[]shapes){
         double area = 0.0;
 
         for(Shape shape : shapes)
@@ -42,7 +42,7 @@ public class ShapesService {
 
     //String.valueOf()
 
-    public static double calcTotalRectangleArea(Shape[]shapes){
+    public double calcTotalRectangleArea(Shape[]shapes){
         double area = 0.0;
 
         for(Shape shape : shapes)
@@ -52,7 +52,7 @@ public class ShapesService {
         return area;
     }
 
-    public static double calcTotalTriangleArea(Shape[]shapes){
+    public double calcTotalTriangleArea(Shape[]shapes){
         double area = 0.0;
 
         for(Shape shape : shapes)
@@ -61,7 +61,5 @@ public class ShapesService {
 
         return area;
     }
-
-
 
 }

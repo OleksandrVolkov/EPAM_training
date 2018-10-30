@@ -12,8 +12,8 @@ public class ThirdController {
         this.view = view;
     }
 
-
     public void buildPirimade(){
+
         view.showMessage(ThirdView.ENTER_TASK);
         view.showMessage(ThirdView.ENTER_VAL);
 
@@ -25,11 +25,9 @@ public class ThirdController {
     }
 
 
-
     private int enterValue(){
         scn = new Scanner(System.in);
         int val = 0;
-
 
         while(true){
             if(scn.hasNextInt()){
@@ -47,9 +45,7 @@ public class ThirdController {
                 scn = new Scanner(System.in);
             }
         }
-
     }
-
 
 }
 
