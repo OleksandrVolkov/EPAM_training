@@ -9,11 +9,11 @@ import task_2.task_2_1.model.entity.Book;
 import task_2.task_2_1.service.BooksService;
 import org.junit.Test;
 import task_2.task_2_1.view.BooksView;
-
 import java.util.Arrays;
 import java.util.Collection;
-
 import static org.junit.Assert.*;
+
+
 
 @RunWith(Parameterized.class)
 public class BookTest {
