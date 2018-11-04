@@ -12,7 +12,6 @@ public class Washer extends Appliance{
     }
 
 
-
     public String getMark() {
         return mark;
     }

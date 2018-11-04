@@ -1,5 +1,6 @@
 package projects.project_1.controller;
 
+import projects.project_1.model.base.Appliance;
 import projects.project_1.model.base.Appliances;
 import projects.project_1.model.base.Size;
 import projects.project_1.model.data.AppliancesArray;
@@ -14,11 +15,11 @@ public class Controller {
     public Controller(){
         model = new Appliances(AppliancesArray.getData());
         view = new View();
+        service = new Service(new Appliances(model.getApplianceList()));
     }
 
     public void run(){
         view.displayMessage(View.INITIAL_MES);
-        service = new Service(new Appliances(model.getApplianceList()));
         service.plugAppliancesByIndex(0,2,4);
         service.addAppliance(AppliancesArray.getSampleAppliance());
         view.displayAppliances(model.getApplianceList());
@@ -28,6 +29,7 @@ public class Controller {
         view.displayAppliances(model.getApplianceList());
         view.displayMessage(View.TOTAL_POWER + model.getTotalPower());
 
-        view.displayMessage(service.findAppliance(new Fridge(290, new Size(100,350), "Samsung"))+"");
+        service.findAppliance(AppliancesArray.getSampleAppliance());
+        view.displayMessage(View.FINDING_APPLIANCE + service.findAppliance(service.findAppliance(AppliancesArray.getSampleAppliance())));
     }
 }

@@ -27,4 +27,5 @@ public class AppliancesArray {
     public static Appliance getSampleAppliance(){
         return new Washer(200, new Size(200,100), "Toshiba");
     }
+
 }
