@@ -19,4 +19,12 @@ public class Service {
     public void addAppliance(Appliance appliance){
         appliances.addAppliance(appliance);
     }
+
+    public Appliance findAppliance(Appliance appliance){
+        for(Appliance a: appliances.getApplianceList()){
+            if(a.equals(appliance))
+                return a;
+        }
+        return null;
+    }
 }

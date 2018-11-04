@@ -1,7 +1,9 @@
 package projects.project_1.controller;
 
 import projects.project_1.model.base.Appliances;
+import projects.project_1.model.base.Size;
 import projects.project_1.model.data.AppliancesArray;
+import projects.project_1.model.entity.Fridge;
 import projects.project_1.service.Service;
 import projects.project_1.view.View;
 
@@ -25,5 +27,7 @@ public class Controller {
         view.displayMessage(View.AFTER_SORTING);
         view.displayAppliances(model.getApplianceList());
         view.displayMessage(View.TOTAL_POWER + model.getTotalPower());
+
+        view.displayMessage(service.findAppliance(new Fridge(290, new Size(100,350), "Samsung"))+"");
     }
 }
