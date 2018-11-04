@@ -36,7 +36,7 @@ public class Toster extends Appliance{
     @Override
     public String toString() {
         return "Toster{" +
-                "mark='" + mark + super.toString() +
+                "mark='" + mark + "'" + super.toString() +
                 '}';
     }
 }

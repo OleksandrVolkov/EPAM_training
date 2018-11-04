@@ -39,7 +39,7 @@ public class Washer extends Appliance{
     @Override
     public String toString() {
         return "Washer{" +
-                "mark='" + mark + super.toString() + super.toString() +
+                "mark='" + mark + "'" + super.toString() + super.toString() +
                 '}';
     }
 }

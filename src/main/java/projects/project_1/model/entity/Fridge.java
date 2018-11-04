@@ -23,7 +23,7 @@ public class Fridge extends Appliance{
     @Override
     public String toString() {
         return "Fridge{" +
-                "mark='" + mark + super.toString() +
+                "mark='" + mark + "'"+ super.toString() +
                 '}';
     }
 

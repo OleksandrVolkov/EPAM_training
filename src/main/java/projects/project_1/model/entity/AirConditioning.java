@@ -37,7 +37,7 @@ public class AirConditioning extends Appliance{
     @Override
     public String toString() {
         return "AirConditioning{" +
-                "mark='" + mark + super.toString() +
+                "mark='" + mark + "'" + super.toString() +
                 '}';
     }
 

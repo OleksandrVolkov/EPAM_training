@@ -37,7 +37,7 @@ public class TV extends Appliance{
     @Override
     public String toString() {
         return "TV{" +
-                "mark='" + mark + super.toString() +
+                "mark='" + mark + "'" + super.toString() +
                 '}';
     }
 }

@@ -36,7 +36,7 @@ public class HairDryer extends Appliance {
     @Override
     public String toString() {
         return "HairDryer{" +
-                "mark='" + mark + super.toString() +
+                "mark='" + mark + "'" + super.toString() +
                 '}';
     }
 }
