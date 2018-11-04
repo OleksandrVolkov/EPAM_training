@@ -6,8 +6,9 @@ import projects.project_1.service.Service;
 import projects.project_1.view.View;
 
 public class Controller {
-    Appliances model;
-    View view;
+    private Appliances model;
+    private View view;
+    private Service service;
     public Controller(){
         model = new Appliances(AppliancesArray.getData());
         view = new View();
@@ -15,7 +16,7 @@ public class Controller {
 
     public void run(){
         view.displayMessage(View.INITIAL_MES);
-        Service service = new Service(new Appliances(model.getApplianceList()));
+        service = new Service(new Appliances(model.getApplianceList()));
         service.plugAppliancesByIndex(0,2,4);
         service.addAppliance(AppliancesArray.getSampleAppliance());
         view.displayAppliances(model.getApplianceList());
