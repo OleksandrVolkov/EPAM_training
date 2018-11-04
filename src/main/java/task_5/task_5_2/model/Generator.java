@@ -8,9 +8,7 @@ public class Generator {
     private static Generator instance = new Generator();
 
 
-    private Generator(){
-        set = new HashSet<>();
-    }
+    private Generator(){ }
 
     public static Generator getInstance(){
         if(instance == null)
