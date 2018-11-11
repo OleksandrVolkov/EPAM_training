@@ -16,9 +16,8 @@ public class Controller {
         service.processUniqueWords();
 
         view.printMessage(View.PROCESSING_STRING + View.BLINK + View.TABL + Text.getText());
-
-        ArrayList<Word> words = service.getUniqueWords();
-        if(words.isEmpty())
+        
+        if(service.getUniqueWords().isEmpty())
             view.printMessage(View.NO_UNIQUE_WORDS);
         else
             view.printWords(View.UNIQUE_WORDS, service.getUniqueWords());
