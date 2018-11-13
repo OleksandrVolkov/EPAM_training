@@ -1,5 +1,6 @@
 package task_4;
 
+//tests are available at the test branch
 public class TemperatureConverter {
     public double convertFtoC(double degreesFahrenheit){
         return (degreesFahrenheit - 32.0) / 9.0 * 5.0;
