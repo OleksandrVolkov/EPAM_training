@@ -1,22 +1,22 @@
 package projects.project_2.controller;
-
-import projects.project_2.data.Text;
-import projects.project_2.model.Word;
+import projects.project_2.service.FileHandler;
 import projects.project_2.service.Service;
 import projects.project_2.view.View;
-
-import java.util.ArrayList;
+import java.io.FileNotFoundException;
 
 public class Controller {
     private Service service = new Service();
     private View view = new View();
+    private FileHandler fileHandler = new FileHandler();
 
-    public void run(){
-        service.processText(Text.getText());
+    public void run() throws FileNotFoundException {
+        String text = fileHandler.getText("Text.txt");
+
+        service.processText(text);
         service.processUniqueWords();
 
-        view.printMessage(View.PROCESSING_STRING + View.BLINK + View.TABL + Text.getText());
-        
+        view.printMessage(View.PROCESSING_STRING + View.BLINK + View.TABL + text);
+
         if(service.getUniqueWords().isEmpty())
             view.printMessage(View.NO_UNIQUE_WORDS);
         else

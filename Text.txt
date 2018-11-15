@@ -1,0 +1,6 @@
+A JVM language is any language with functionality that can be expressed in terms of a valid class file which can be hosted by the Java Virtual Machine.
+A class file contains Java Virtual Machine instructions (Java byte code) and a symbol table, as well as other ancillary information.
+The class file format is the hardware- and operating system-independent binary format used to represent compiled classes and interfaces.
+There are several JVM languages, both old languages ported to JVM and completely new languages. JRuby and Jython are perhaps the most well-known ports of existing languages, i.e. Ruby and Python respectively.
+Of the new languages that have been created from scratch to compile to Java bytecode, Clojure, Apache Groovy, Scala and Kotlin may be the most popular ones.
+A notable feature with the JVM languages is that they are compatible with each other, so that, for example, Scala libraries can be used with Java programs and vice versa.

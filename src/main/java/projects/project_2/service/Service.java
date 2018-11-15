@@ -5,6 +5,7 @@ import projects.project_2.model.Sentence;
 import projects.project_2.model.Word;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class Service {
@@ -12,12 +13,11 @@ public class Service {
     private ArrayList<Word> words = new ArrayList<>();
     private ArrayList<Character> endMarks = PunctuationMark.getEndMarks();
     private ArrayList<Character> separatorMarks = PunctuationMark.getSeparatorMarks();
-    private ArrayList<Word> uniqueWords = new ArrayList<>();
+    private HashSet<Word> uniqueWords = new HashSet<>();
 
 
     public void processText(String string){
         String temp = "";
-
         int counter = 0;
 
         for(char ch: string.toCharArray()){
@@ -80,15 +80,17 @@ public class Service {
     }
 
 
-    public ArrayList<Word> processUniqueWords() {
+    public HashSet<Word> processUniqueWords() {
         return uniqueWords;
     }
 
-    public void setUniqueWords(ArrayList<Word> uniqueWords) {
+    public void setUniqueWords(HashSet<Word> uniqueWords) {
         this.uniqueWords = uniqueWords;
     }
 
-    public ArrayList<Word> getUniqueWords() {
+    public HashSet<Word> getUniqueWords() {
         return uniqueWords;
     }
+
+
 }

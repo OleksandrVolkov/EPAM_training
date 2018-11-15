@@ -17,8 +17,8 @@ import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
 public class BookTest {
-    BooksService service;
-    Books model;
+    private BooksService service;
+    private Books model;
 
     @Parameterized.Parameter
     public String author;
