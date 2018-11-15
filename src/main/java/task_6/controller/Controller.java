@@ -21,8 +21,8 @@ public class Controller {
 
 
     public void run() throws FileNotFoundException, UnsupportedEncodingException {
-       // "InitialFile.txt"
-        // "FinalFile.txt"
+       // "static/InitialFile_task6.txt"
+        // "static/FinalFile_task6.txt"
 
         view.printMessage(View.ENTER_PATH_READ);
         String initialPath = view.getString();

@@ -7,6 +7,9 @@ import java.io.UnsupportedEncodingException;
 
 public class Main {
     public static void main(String []args){
+        // "static/InitialFile_task6.txt"
+        // "static/FinalFile_task6.txt"
+
         try {
             new Controller().run();
         } catch (FileNotFoundException e) {

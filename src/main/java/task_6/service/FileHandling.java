@@ -31,7 +31,6 @@ public class FileHandling {
 
     public String read(String path) throws FileNotFoundException {
         BufferedReader br = new BufferedReader(new FileReader(path));
-        List <Book>books2 = new ArrayList();
 
         StringBuilder sb = new StringBuilder();
         String line;

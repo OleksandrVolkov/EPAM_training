@@ -10,7 +10,7 @@ public class Controller {
     private FileHandler fileHandler = new FileHandler();
 
     public void run() throws FileNotFoundException {
-        String text = fileHandler.getText("Text.txt");
+        String text = fileHandler.getText("static/Text.txt");
 
         service.processText(text);
         service.processUniqueWords();
