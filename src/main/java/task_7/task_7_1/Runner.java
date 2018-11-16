@@ -4,12 +4,12 @@ import java.lang.reflect.Field;
 
 public class Runner {
     public void run() throws NoSuchFieldException, IllegalAccessException {
-        String string = "Hello";
 
 //      Scanner sc = new Scanner(System.in);
 //      System.out.println("Enter string:");
 //      String string = sc.nextLine();
 
+        String string = "Hello";
         System.out.println(string);
         Class<?> clazz = string.getClass();
         Field field = clazz.getDeclaredField("value");
